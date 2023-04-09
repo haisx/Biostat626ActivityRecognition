@@ -150,3 +150,15 @@ cmtableb2 %>%
   kable_classic(full_width = F, html_font = "Cambria")
 
 
+## 
+library(nnet)
+
+multinom_model = multinom(multi_act~F96+F103+F258+F272+F270+F259+F201+F405+F345,data=train2)
+
+ClassPredicted = predict(multinom_model, newdata = train, "class")
+# Building classification table
+tab <- table(train2$multi_act, ClassPredicted)
+tab
+tab %>%
+  kbl(caption = "Multi-class Classification Results") %>%
+  kable_classic(full_width = F, html_font = "Cambria")
