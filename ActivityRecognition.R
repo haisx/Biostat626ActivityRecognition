@@ -5,6 +5,8 @@ library(party)
 library(earth)
 library(kableExtra)
 library(dplyr)
+library(corrplot)
+
 #Data Overview
 train = read.table("C:/Users/10656/Desktop/UM2.2/626/training_data.txt",header = TRUE)
 test = read.table("C:/Users/10656/Desktop/UM2.2/626/test_data.txt",header = TRUE)
@@ -86,7 +88,16 @@ write.table(as.numeric(result2test), "C:/Users/10656/Desktop/UM2.2/626/multiclas
 
 
 # Second Part
+################################### Exploratory Data Analysis
 #################################### Other methods with lower accuracy
+##################################### and other try on this data
+hist(train$binary_act)
+hist(train2$multi_act)
+ctrain = cor(train)
+#corrplot(ctrain, type = "upper", order = "hclust", 
+#         tl.col = "black", tl.srt = 45)
+col =  colorRampPalette(c("blue", "white", "red"))(20)
+heatmap(x = ctrain, col = col, symm = TRUE)
 
 
 # Variable Selection for Binary Classification (Baseline)
@@ -106,23 +117,36 @@ sort(voi,decreasing = TRUE)[1:10]
 
 
 
-
 # logistic regression with a set of most important variables
 glm1 = glm(binary_act~F282+F141+F201+F182,data=train)
 glmresult = predict(glm1,newdata = train, type="response")
 predicted.classes <- ifelse(glmresult > 0.51, 1, 0)
 mean(predicted.classes == train$binary_act)
 
-confusionMatrix(data = as.factor(predicted.classes), reference =as.factor(train$binary_act))$table
+confusionMatrix(data = as.factor(predicted.classes), 
+                reference =as.factor(train$binary_act))$table
+cmtableb1 = confusionMatrix(data = as.factor(predicted.classes), 
+                            reference =as.factor(train$binary_act))$table
 
+# Confusion matrix table
+cmtableb1 %>%
+  kbl(caption = "Binary Classification Results") %>%
+  kable_classic(full_width = F, html_font = "Cambria")
 
 # logistic regression with a set of most important variables (more variables)
 glm2 = glm(binary_act~F96+F103+F258+F272+F270+F259+F201+F405+F345,data=train)
 glmresult = predict(glm2,newdata = train, type="response")
 predicted.classes <- ifelse(glmresult > 0.55, 1, 0)
 mean(predicted.classes == train$binary_act)
-confusionMatrix(data = as.factor(predicted.classes), reference =as.factor(train$binary_act))$table
+confusionMatrix(data = as.factor(predicted.classes), 
+                reference =as.factor(train$binary_act))$table
 
+cmtableb2 = confusionMatrix(data = as.factor(predicted.classes), 
+                            reference =as.factor(train$binary_act))$table
 
+# Confusion matrix table
+cmtableb2 %>%
+  kbl(caption = "Binary Classification Results") %>%
+  kable_classic(full_width = F, html_font = "Cambria")
 
 
