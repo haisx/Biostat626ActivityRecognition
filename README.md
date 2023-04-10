@@ -36,7 +36,7 @@ The result files ``result/binary_l1281.txt`` and ``result/multiclass_l1281.txt``
 - R version 4.1.3
 - R packages used in the project including `glmnet`, `caret`, `party`, `earth`, `kableExtra`, `dplyr`, `corrplot`, ...
 
-- All the necessary codes for training the ML model is open to run at `ActivityRecognition.R`. Note that the performance of classifier may act slightly differently compared to my results according to the seeds.
+- All the necessary codes for training the ML model is open to run at `ActivityRecognition.R`(Only the useful codes were kept in the file. Some old attempts were removed). Note that the performance of classifier may act slightly differently compared to my results according to the seeds.
 
 - There are two main parts in the file `ActivityRecognition.R`, Final Algorithm part and Other Methods part. The Final Algorithm part includes the final algorithms (LASSO) we finally used for classifications. The Other Methods part includes the baseline algorithms (including glm, multinomal glm, feature selection, ...) used in the project.
 
