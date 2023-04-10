@@ -21,6 +21,9 @@ train$binary_act = ifelse(train$activity == 1|train$activity == 2|train$activity
 # First Part
 ## Final algorithm
 
+#####################################################
+#####################################################
+#####################################################
 # LASSO for binary classification since a large set of variables
 # Cross-Validation was used for finding the best lambda
 lassoy = train$binary_act
