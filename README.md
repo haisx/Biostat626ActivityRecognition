@@ -13,17 +13,6 @@ A group of volunteers, aged between 19 and 48, are recruited to participate in t
 More details could be found at the ``studyDesign/README.txt``.
 
 
-
-## Data files and Result files
-
-Two tab-delimited text files ``data/training_data.txt`` and ``data/test_data.txt`` are provided. The training data (labeled activity information included) should be used to construct and test your ML algorithms. Apply your algorithm to the test data (containing only feature information) and predict the activity corresponding to each time window. 
-
-
-The result files ``result/binary_l1281.txt`` and ``result/multiclass_l1281.txt`` are provided. These two files show the results predicted by ML algorithms for the test data.
-
-
-
-
 ## Motivation
 
 To better understand static and dynamic human activities and their signals captured by wearable device sensors, this project will
@@ -33,12 +22,22 @@ To better understand static and dynamic human activities and their signals captu
 2. Build a refined multi-class classifier to classify walking (1), walking_upstairs (2), walking_downstairs (3), sitting (4), standing (5), lying (6), and static postural transition (7).
 
 
+## Data files and Result files
+
+Two tab-delimited text files ``data/training_data.txt`` and ``data/test_data.txt`` are provided. The training data (labeled activity information included) should be used to construct and test your ML algorithms. Apply your algorithm to the test data (containing only feature information) and predict the activity corresponding to each time window. 
+
+
+The result files ``result/binary_l1281.txt`` and ``result/multiclass_l1281.txt`` are provided. These two files show the results predicted by ML algorithms for the test data.
+  
+
 
 ## Getting Started
 
 - R version 4.1.3
-- R package including `glmnet`, `caret`, `party`, `earth`, `kableExtra`, `dplyr`, `corrplot`, ...
+- R packages used in the project including `glmnet`, `caret`, `party`, `earth`, `kableExtra`, `dplyr`, `corrplot`, ...
 
 - All the necessary codes for training the ML model is open to run at `ActivityRecognition.R`. Note that the performance of classifier may act slightly differently compared to my results according to the seeds.
 
 - There are two main parts in the file `ActivityRecognition.R`, Final Algorithm part and Other Methods part. The Final Algorithm part includes the final algorithms (LASSO) we final used in classifications. The Other Methods part includes the baseline algorithms (including glm, multinomal glm, feature selection, ...) used in the project.
+
+- The prediction results on test data was written by write.table() function in R. The results of classification could be found at `result` fold.
