@@ -38,6 +38,6 @@ The result files ``result/binary_l1281.txt`` and ``result/multiclass_l1281.txt``
 
 - All the necessary codes for training the ML model is open to run at `ActivityRecognition.R`. Note that the performance of classifier may act slightly differently compared to my results according to the seeds.
 
-- There are two main parts in the file `ActivityRecognition.R`, Final Algorithm part and Other Methods part. The Final Algorithm part includes the final algorithms (LASSO) we final used in classifications. The Other Methods part includes the baseline algorithms (including glm, multinomal glm, feature selection, ...) used in the project.
+- There are two main parts in the file `ActivityRecognition.R`, Final Algorithm part and Other Methods part. The Final Algorithm part includes the final algorithms (LASSO) we finally used for classifications. The Other Methods part includes the baseline algorithms (including glm, multinomal glm, feature selection, ...) used in the project.
 
-- The prediction results on test data was written by write.table() function in R. The results of classification could be found at `result` fold.
+- The prediction results on test data was written by `write.table()` function in R. The results of classification could be found at `result/.txt`.
